@@ -1,11 +1,11 @@
 pipeline {
     agent any
     tools {
-        nodejs 'nodejs-22.12.0' 
+        nodejs 'nodejs-20'  // Use Node.js 20
     }
  
     environment {
-        NODEJS_HOME = '/Users/ariv/.nvm/versions/node/v22.12.0/bin/node'  
+        NODEJS_HOME = '/Users/ariv/.nvm/versions/node/v20.18.1/bin'  // Path for Node.js 20
         SONAR_SCANNER_PATH = '/Users/ariv/Downloads/sonar-scanner-6.2.1.4610-macosx-x64/bin'
     }
  
