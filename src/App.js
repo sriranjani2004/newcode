@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './App.css'; // Assuming you will create a separate CSS file
 
 function App() {
   const [formData, setFormData] = useState({
@@ -6,6 +7,8 @@ function App() {
     email: '',
     password: ''
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,8 +18,17 @@ function App() {
     });
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.password.length < 6) {
+      alert('Password must be at least 6 characters long.');
+      return;
+    }
+
     console.log('Form Data Submitted:', formData);
     alert('Registration Successful!');
   };
@@ -48,12 +60,15 @@ function App() {
         <div>
           <label>Password:</label>
           <input
-            type="password"
+            type={showPassword ? 'text' : 'password'}
             name="password"
             value={formData.password}
             onChange={handleChange}
             required
           />
+          <button type="button" onClick={togglePasswordVisibility}>
+            {showPassword ? 'Hide' : 'Show'} Password
+          </button>
         </div>
         <button type="submit">Register</button>
       </form>
