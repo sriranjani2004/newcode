@@ -5,7 +5,7 @@ pipeline {
     }
  
     environment {
-        NODEJS_HOME = '/Users/ariv/.nvm/versions/node/v20.18.1/bin'  // Path for Node.js 20
+        NODEJS_HOME = '/usr/local/bin/node'  // Path for Node.js 20
         SONAR_SCANNER_PATH = '/Users/ariv/Downloads/sonar-scanner-6.2.1.4610-macosx-x64/bin'
     }
  
